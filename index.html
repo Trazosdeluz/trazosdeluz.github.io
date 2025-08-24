@@ -1,272 +1,314 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trazos de luz | Grafología</title>
-    <!-- Primary meta tags for SEO -->
-    <meta name="title" content="Trazos de luz | Grafología">
-    <meta name="description" content="Bárbara te acompaña a soltar bloqueos y conocerte más profundamente a través de la grafología y terapias integrales.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trazos de luz – Grafología & Bienestar</title>
+  <meta name="description" content="Grafología para conocerte más profundamente. Análisis de firma, informe completo de personalidad, detox de estrés y acompañamiento con Flores de Bach." />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://">
-    <meta property="og:title" content="Trazos de luz | Grafología">
-    <meta property="og:description" content="Bárbara te acompaña a soltar bloqueos y conocerte más profundamente a través de la grafología y terapias integrales.">
-    <meta property="og:image" content="assets/og-image.png">
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Trazos de luz – Grafología & Bienestar" />
+  <meta property="og:description" content="Te acompaño a soltar bloqueos y conocerte más profundamente mediante la grafología." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:url" content="https://tuusuario.github.io/trazosdeluz" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="icon" href="assets/favicon.png" />
 
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Colour palette inspired by the existing branding */
-        :root {
-            --color-primary: #5e8d72;
-            --color-secondary: #a9cbb7;
-            --color-beige: #f9efe6;
-            --color-accent: #8baa75;
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Paleta aproximada basada en la landing de referencia (ajustable)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#8FB6A1', // verde pastel del logo
+              dark: '#6f9b86'
+            },
+            accent: '#F2D7C2',   // durazno suave del fondo
+            sand: '#F5EFE9',     // beige claro
+            ink: '#2F2F2F'       // texto principal
+          },
+          fontFamily: {
+            title: ['Raleway', 'ui-sans-serif', 'system-ui'],
+            body: ['Inter', 'ui-sans-serif', 'system-ui']
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(0,0,0,.06)'
+          }
         }
-        body {
-            background-color: var(--color-beige);
-        }
-        /* Scroll snapping for mobile service cards */
-        .snap-x {
-            scroll-snap-type: x mandatory;
-        }
-        .snap-start {
-            scroll-snap-align: start;
-        }
-        /* Floating WhatsApp button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 1rem;
-            right: 1rem;
-            z-index: 50;
-        }
-    </style>
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Raleway:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Scroll suave + ocultar scrollbar del carrusel en navegadores comunes */
+    html { scroll-behavior: smooth; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+  <!-- Cloudflare Web Analytics (reemplazar TOKEN) -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_CLOUDFLARE_TOKEN_HERE"}'></script>
+
+  <!-- JSON-LD básico para SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Trazos de luz",
+    "url": "https://tuusuario.github.io/trazosdeluz",
+    "logo": "https://tuusuario.github.io/trazosdeluz/assets/logo.png",
+    "sameAs": [
+      "https://www.instagram.com/trazosdeluz.grafo",
+      "https://www.tiktok.com/@trazos_de_luz"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": "+54 3548 600802"
+    }]
+  }
+  </script>
 </head>
-<body class="text-gray-700 font-sans">
-    <!-- Floating WhatsApp button -->
-    <a href="https://api.whatsapp.com/send/?phone=543548600802&text=Hola%20B%C3%A1rbara%2C%20estoy%20interesado%2Finteresada%20en%20tus%20servicios&type=phone_number&app_absent=0" class="whatsapp-float inline-flex items-center justify-center w-12 h-12 bg-[var(--color-primary)] text-white rounded-full shadow-lg hover:bg-[var(--color-accent)] transition-colors" aria-label="WhatsApp">
-        <!-- WhatsApp icon as inline SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" class="w-6 h-6"><path d="M380.9 97.1C339-8.2 233.9-31.2 131.6 16.4 41.6 58.1-9.4 142 3.3 230.2l-31.3 120.9 123.8-32.4c35.8 21.1 76.9 32.2 118.9 32.2h.1c101.5 0 193-67 226.2-164.4 33.3-97.9-.1-203.1-60.1-248.4zM222.5 363.9c-27.4 0-54.1-7.3-77.8-21.2l-5.5-3.3-73.3 19 19.5-71.4-3.6-5.7c-23-35.7-29.4-80-17.7-121.6 11.9-42.5 42.2-78 82.6-97.2 40.2-19.1 86.7-20.4 128.5-3.6 41.6 16.8 74.3 49.6 90.8 90.9 16.9 41.8 15.6 88.4-3.7 128.6-19.2 40.4-54.9 70.7-97.5 82.5-14.5 4.1-29.4 6.1-44.5 6.1zm97.4-146.9c-5.3-2.7-31.4-15.5-36.3-17.3-4.9-1.8-8.5-2.7-12.1 2.7-3.6 5.3-13.9 17.3-17.1 20.8-3.1 3.6-6.2 4-11.5 1.3-5.3-2.7-22.5-8.3-42.8-26.6-15.8-14.1-26.5-31.6-29.6-36.9-3.1-5.3-.3-8.2 2.4-10.9 2.5-2.6 5.3-6.7 7.9-10.2 2.6-3.5 3.5-6.1 5.3-10.1 1.8-4 0.9-7.6-.4-10.3-1.3-2.7-12.1-29-16.6-39.7-4.4-10.7-8.9-9.2-12.1-9.4-3.1-.2-6.6-.2-10.1-.2-3.6 0-9.5 1.3-14.5 6.7-5 5.3-19 18.6-19 45.5 0 26.9 19.5 53 22.2 56.7 2.7 3.6 38.4 58.8 93 82.4 54.6 23.6 54.6 15.8 64.4 14.9 9.8-.9 31.4-12.7 35.8-25.1 4.4-12.4 4.4-23 3.1-25.1-1.2-2.2-4.4-3.5-9.6-6.2z"/></svg>
-    </a>
+<body class="bg-sand text-ink font-body">
+  <!-- Barra superior -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-sand/80 border-b border-black/5">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="Logo Trazos de luz" class="h-10 w-10 rounded-full" />
+        <span class="font-title text-lg md:text-xl">Trazos de luz</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#servicios" class="hover:text-primary">Servicios</a>
+        <a href="#testimonios" class="hover:text-primary">Testimonios</a>
+        <a href="#faq" class="hover:text-primary">Preguntas</a>
+        <a href="#contacto" class="px-3 py-2 rounded-full bg-primary text-white hover:bg-primary-dark transition">Solicitar info</a>
+      </nav>
+      <a href="#contacto" class="md:hidden px-3 py-1.5 rounded-full bg-primary text-white text-sm">Info</a>
+    </div>
+  </header>
 
-    <!-- Header / Hero -->
-    <header class="relative overflow-hidden pt-12 pb-20 bg-gradient-to-b from-[var(--color-secondary)] via-[var(--color-beige)] to-[var(--color-beige)]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center gap-10">
-            <!-- Textual intro -->
-            <div class="flex-1 text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-4 mb-4">
-                    <img src="assets/logo.png" alt="Logo Trazos de luz" class="w-14 h-14">
-                    <h1 class="text-4xl sm:text-5xl font-bold text-[var(--color-primary)]">Trazos de luz</h1>
-                </div>
-                <p class="text-lg sm:text-xl max-w-md mx-auto md:mx-0 mb-6 leading-relaxed">
-                    Hola 🙋‍♀️ Soy Bárbara 💫<br>
-                    🧠 A través de la grafología te acompaño a soltar bloqueos y conocerte más profundamente.
-                </p>
-                <a href="#servicios" class="inline-block px-6 py-3 rounded-full bg-[var(--color-primary)] text-white font-medium hover:bg-[var(--color-accent)] transition-colors">Conocé mis terapias</a>
-            </div>
-            <!-- Hero image -->
-            <div class="flex-1">
-                <img src="assets/barbara.jpg" alt="Foto de Bárbara" class="w-full h-auto rounded-2xl shadow-lg">
-            </div>
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/40 via-sand to-sand pointer-events-none"></div>
+    <div class="relative max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center py-14 md:py-20">
+      <div>
+        <h1 class="font-title text-3xl md:text-5xl leading-tight">Grafología para mejorar tu bienestar</h1>
+        <p class="mt-4 text-lg md:text-xl text-black/70">Hola 🙋‍♀️ Soy Bárbara 💫<br>🧠 A través de la grafología te acompaño a soltar bloqueos y conocerte más profundamente.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-white shadow-soft hover:bg-primary-dark transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.91 11.91 0 0 0 12.06 0C5.46.03.06 5.43.09 12.03c.01 2.12.56 4.19 1.6 6.02L0 24l6.12-1.62a12.02 12.02 0 0 0 5.88 1.51h.05c6.6-.03 12-5.43 11.97-12.03a11.9 11.9 0 0 0-3.5-8.38ZM12 22.05h-.05a10.04 10.04 0 0 1-5.12-1.42l-.37-.22-3.63.96.97-3.54-.24-.36A10.01 10.01 0 1 1 12 22.05Zm5.53-7.53c-.3-.15-1.77-.87-2.05-.96-.27-.1-.47-.15-.67.15-.2.3-.77.95-.95 1.15-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.48-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.62.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+            Solicitar info
+          </a>
+          <a href="#servicios" class="inline-flex items-center px-5 py-3 rounded-full border border-black/10 hover:border-primary hover:text-primary transition">Ver servicios</a>
         </div>
-    </header>
-
-    <!-- Servicios Section -->
-    <section id="servicios" class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-[var(--color-primary)] mb-10">Terapias para mejorar tu bienestar</h2>
-            <!-- Mobile slider -->
-            <div class="md:hidden overflow-x-auto snap-x pb-4">
-                <div class="flex space-x-6">
-                    <!-- Servicio 1 -->
-                    <div class="snap-start flex-none w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
-                        <img src="assets/svc-firma.png" alt="Análisis de firma" class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-2 flex items-center gap-2">✍️ Análisis de firma</h3>
-                            <p class="text-sm mb-4">Analizo tu firma y te entrego un informe con 5 rasgos claves de tu personalidad. Ideal si querés conocerte desde lo más simple.</p>
-                            <a href="https://api.whatsapp.com/send/?phone=543548600802&text=Hola%20B%C3%A1rbara%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20An%C3%A1lisis%20de%20firma&type=phone_number&app_absent=0" class="inline-block mt-auto px-4 py-2 rounded-md bg-[var(--color-primary)] text-white text-sm font-medium hover:bg-[var(--color-accent)]">Solicitar info</a>
-                        </div>
-                    </div>
-                    <!-- Servicio 2 -->
-                    <div class="snap-start flex-none w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
-                        <img src="assets/svc-detox.png" alt="Detox de Estrés" class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-2 flex items-center gap-2">😵‍💫 Detox de Estrés</h3>
-                            <p class="text-sm mb-4">Detecto 3 o 4 signos de estrés en tu escritura y te doy ejercicios de grafoterapia para relajarte. Una pausa consciente para tu mente.</p>
-                            <a href="https://api.whatsapp.com/send/?phone=543548600802&text=Hola%20B%C3%A1rbara%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Detox%20de%20Estr%C3%A9s&type=phone_number&app_absent=0" class="inline-block mt-auto px-4 py-2 rounded-md bg-[var(--color-primary)] text-white text-sm font-medium hover:bg-[var(--color-accent)]">Solicitar info</a>
-                        </div>
-                    </div>
-                    <!-- Servicio 3 -->
-                    <div class="snap-start flex-none w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
-                        <img src="assets/svc-personalidad.png" alt="Informe completo de personalidad" class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-2 flex items-center gap-2">🧠 Informe de personalidad</h3>
-                            <p class="text-sm mb-4">Análisis profundo de tu escritura. Recibís un informe personalizado y detallado.</p>
-                            <a href="https://api.whatsapp.com/send/?phone=543548600802&text=Hola%20B%C3%A1rbara%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Informe%20completo%20de%20personalidad&type=phone_number&app_absent=0" class="inline-block mt-auto px-4 py-2 rounded-md bg-[var(--color-primary)] text-white text-sm font-medium hover:bg-[var(--color-accent)]">Solicitar info</a>
-                        </div>
-                    </div>
-                    <!-- Servicio 4 -->
-                    <div class="snap-start flex-none w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
-                        <img src="assets/svc-bach.png" alt="Flores de Bach" class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-2 flex items-center gap-2">🌸 Flores de Bach</h3>
-                            <p class="text-sm mb-4">Si querés trabajar en profundidad los bloqueos emocionales detectados con grafología, podés sumar Flores de Bach.</p>
-                            <a href="https://api.whatsapp.com/send/?phone=543548600802&text=Hola%20B%C3%A1rbara%2C%20quiero%20informaci%C3%B3n%20sobre%20Flores%20de%20Bach&type=phone_number&app_absent=0" class="inline-block mt-auto px-4 py-2 rounded-md bg-[var(--color-primary)] text-white text-sm font-medium hover:bg-[var(--color-accent)]">Solicitar info</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Desktop grid -->
-            <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Reuse same cards but adapt to grid -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
-                    <img src="assets/svc-firma.png" alt="Análisis de firma" class="w-full h-48 object-cover">
-                    <div class="p-4 flex-1 flex flex-col">
-                        <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-2 flex items-center gap-2">✍️ Análisis de firma</h3>
-                        <p class="text-sm mb-4 flex-1">Analizo tu firma y te entrego un informe con 5 rasgos claves de tu personalidad. Ideal si querés conocerte desde lo más simple.</p>
-                        <a href="https://api.whatsapp.com/send/?phone=543548600802&text=Hola%20B%C3%A1rbara%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20An%C3%A1lisis%20de%20firma&type=phone_number&app_absent=0" class="mt-auto inline-block px-4 py-2 rounded-md bg-[var(--color-primary)] text-white text-sm font-medium hover:bg-[var(--color-accent)]">Solicitar info</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
-                    <img src="assets/svc-detox.png" alt="Detox de Estrés" class="w-full h-48 object-cover">
-                    <div class="p-4 flex-1 flex flex-col">
-                        <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-2 flex items-center gap-2">😵‍💫 Detox de Estrés</h3>
-                        <p class="text-sm mb-4 flex-1">Detecto 3 o 4 signos de estrés en tu escritura y te doy ejercicios de grafoterapia para relajarte. Una pausa consciente para tu mente.</p>
-                        <a href="https://api.whatsapp.com/send/?phone=543548600802&text=Hola%20B%C3%A1rbara%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Detox%20de%20Estr%C3%A9s&type=phone_number&app_absent=0" class="mt-auto inline-block px-4 py-2 rounded-md bg-[var(--color-primary)] text-white text-sm font-medium hover:bg-[var(--color-accent)]">Solicitar info</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
-                    <img src="assets/svc-personalidad.png" alt="Informe completo de personalidad" class="w-full h-48 object-cover">
-                    <div class="p-4 flex-1 flex flex-col">
-                        <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-2 flex items-center gap-2">🧠 Informe de personalidad</h3>
-                        <p class="text-sm mb-4 flex-1">Análisis profundo de tu escritura. Recibís un informe personalizado y detallado.</p>
-                        <a href="https://api.whatsapp.com/send/?phone=543548600802&text=Hola%20B%C3%A1rbara%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Informe%20completo%20de%20personalidad&type=phone_number&app_absent=0" class="mt-auto inline-block px-4 py-2 rounded-md bg-[var(--color-primary)] text-white text-sm font-medium hover:bg-[var(--color-accent)]">Solicitar info</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
-                    <img src="assets/svc-bach.png" alt="Flores de Bach" class="w-full h-48 object-cover">
-                    <div class="p-4 flex-1 flex flex-col">
-                        <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-2 flex items-center gap-2">🌸 Flores de Bach</h3>
-                        <p class="text-sm mb-4 flex-1">Si querés trabajar en profundidad los bloqueos emocionales detectados con grafología, podés sumar Flores de Bach.</p>
-                        <a href="https://api.whatsapp.com/send/?phone=543548600802&text=Hola%20B%C3%A1rbara%2C%20quiero%20informaci%C3%B3n%20sobre%20Flores%20de%20Bach&type=phone_number&app_absent=0" class="mt-auto inline-block px-4 py-2 rounded-md bg-[var(--color-primary)] text-white text-sm font-medium hover:bg-[var(--color-accent)]">Solicitar info</a>
-                    </div>
-                </div>
-            </div>
+        <div class="mt-6 flex items-center gap-4">
+          <a class="hover:opacity-80" href="https://www.instagram.com/trazosdeluz.grafo" aria-label="Instagram">
+            <img alt="Instagram" src="assets/ig.svg" class="h-6 w-6" />
+          </a>
+          <a class="hover:opacity-80" href="https://www.tiktok.com/@trazos_de_luz" aria-label="TikTok">
+            <img alt="TikTok" src="assets/tt.svg" class="h-6 w-6" />
+          </a>
         </div>
-    </section>
+      </div>
+      <div class="relative">
+        <img src="assets/barbara.jpg" alt="Bárbara – Grafóloga" class="w-full max-w-md mx-auto rounded-2xl shadow-soft ring-1 ring-black/5" />
+        <div class="absolute -z-10 inset-0 blur-3xl opacity-30 bg-gradient-to-tr from-primary to-accent rounded-full"></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Testimonios Section -->
-    <section class="py-16 bg-[var(--color-secondary)]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-[var(--color-primary)] mb-10">Testimonios</h2>
-            <div class="grid gap-8 md:grid-cols-3">
-                <!-- Testimonio 1 -->
-                <blockquote class="bg-white rounded-xl shadow-md p-6 flex flex-col h-full">
-                    <p class="mb-4 text-lg italic flex-1">“Gracias a Bárbara me encontré con aspectos que desconocía de mí. Súper recomendable.”</p>
-                    <footer class="text-right font-semibold text-[var(--color-primary)]">María C.</footer>
-                </blockquote>
-                <!-- Testimonio 2 -->
-                <blockquote class="bg-white rounded-xl shadow-md p-6 flex flex-col h-full">
-                    <p class="mb-4 text-lg italic flex-1">“Su análisis de mi firma fue acertado y profundo. Me ayudó a entenderme mejor.”</p>
-                    <footer class="text-right font-semibold text-[var(--color-primary)]">Lucas G.</footer>
-                </blockquote>
-                <!-- Testimonio 3 -->
-                <blockquote class="bg-white rounded-xl shadow-md p-6 flex flex-col h-full">
-                    <p class="mb-4 text-lg italic flex-1">“El detox de estrés fue una pausa necesaria. Me sentí renovada.”</p>
-                    <footer class="text-right font-semibold text-[var(--color-primary)]">Ana P.</footer>
-                </blockquote>
-            </div>
+  <!-- SERVICIOS -->
+  <section id="servicios" class="py-14 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="font-title text-2xl md:text-4xl mb-6">Terapias para mejorar tu bienestar</h2>
+
+      <!-- Mobile: carrusel -->
+      <div class="md:hidden flex gap-4 overflow-x-auto hide-scrollbar scroll-snap-x scroll-smooth">
+        <!-- Card template (x4) -->
+        <article class="min-w-[85%] scroll-mx-4 scroll-ml-6 snap-center bg-white rounded-2xl p-5 shadow-soft border border-black/5">
+          <img src="assets/svc-firma.png" alt="Análisis de firma" class="h-28 w-full object-contain mx-auto" />
+          <h3 class="mt-4 font-semibold">Análisis de firma</h3>
+          <p class="mt-1 text-sm text-black/70">Analizo tu firma y te entrego un informe con 5 rasgos claves de tu personalidad.</p>
+          <ul class="mt-3 text-sm list-disc list-inside text-black/70">
+            <li>Conocerte desde lo simple</li>
+            <li>Entrega en PDF</li>
+          </ul>
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="mt-4 inline-flex w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-white hover:bg-primary-dark">Solicitar info</a>
+        </article>
+
+        <article class="min-w-[85%] snap-center bg-white rounded-2xl p-5 shadow-soft border border-black/5">
+          <img src="assets/svc-detox.png" alt="Detox de Estrés" class="h-28 w-full object-contain mx-auto" />
+          <h3 class="mt-4 font-semibold">Detox de Estrés</h3>
+          <p class="mt-1 text-sm text-black/70">Detecto 3 o 4 signos de estrés en tu escritura y te doy ejercicios de grafoterapia para relajarte.</p>
+          <ul class="mt-3 text-sm list-disc list-inside text-black/70">
+            <li>Pausa consciente para tu mente</li>
+          </ul>
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="mt-4 inline-flex w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-white hover:bg-primary-dark">Solicitar info</a>
+        </article>
+
+        <article class="min-w-[85%] snap-center bg-white rounded-2xl p-5 shadow-soft border border-black/5">
+          <img src="assets/svc-personalidad.png" alt="Informe completo de personalidad" class="h-28 w-full object-contain mx-auto" />
+          <h3 class="mt-4 font-semibold">Informe completo de personalidad</h3>
+          <p class="mt-1 text-sm text-black/70">Análisis profundo de tu escritura. Informe personalizado y detallado.</p>
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="mt-4 inline-flex w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-white hover:bg-primary-dark">Solicitar info</a>
+        </article>
+
+        <article class="min-w-[85%] snap-center bg-white rounded-2xl p-5 shadow-soft border border-black/5">
+          <img src="assets/svc-bach.png" alt="Flores de Bach" class="h-28 w-full object-contain mx-auto" />
+          <h3 class="mt-4 font-semibold">Flores de Bach</h3>
+          <p class="mt-1 text-sm text-black/70">Si querés trabajar en profundidad los bloqueos emocionales detectados con grafología, podemos sumar Flores de Bach.</p>
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="mt-4 inline-flex w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-white hover:bg-primary-dark">Solicitar info</a>
+        </article>
+      </div>
+
+      <!-- Desktop: grilla -->
+      <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="bg-white rounded-2xl p-6 shadow-soft border border-black/5">
+          <img src="assets/svc-firma.png" alt="Análisis de firma" class="h-28 w-full object-contain mx-auto" />
+          <h3 class="mt-4 font-semibold">Análisis de firma</h3>
+          <p class="mt-1 text-sm text-black/70">Analizo tu firma y te entrego un informe con 5 rasgos claves de tu personalidad.</p>
+          <ul class="mt-3 text-sm list-disc list-inside text-black/70">
+            <li>Conocerte desde lo simple</li>
+            <li>Entrega en PDF</li>
+          </ul>
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="mt-4 inline-flex w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-white hover:bg-primary-dark">Solicitar info</a>
+        </article>
+        <article class="bg-white rounded-2xl p-6 shadow-soft border border-black/5">
+          <img src="assets/svc-detox.png" alt="Detox de Estrés" class="h-28 w-full object-contain mx-auto" />
+          <h3 class="mt-4 font-semibold">Detox de Estrés</h3>
+          <p class="mt-1 text-sm text-black/70">Detecto 3 o 4 signos de estrés en tu escritura y te doy ejercicios de grafoterapia para relajarte.</p>
+          <ul class="mt-3 text-sm list-disc list-inside text-black/70">
+            <li>Pausa consciente para tu mente</li>
+          </ul>
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="mt-4 inline-flex w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-white hover:bg-primary-dark">Solicitar info</a>
+        </article>
+        <article class="bg-white rounded-2xl p-6 shadow-soft border border-black/5">
+          <img src="assets/svc-personalidad.png" alt="Informe completo de personalidad" class="h-28 w-full object-contain mx-auto" />
+          <h3 class="mt-4 font-semibold">Informe completo de personalidad</h3>
+          <p class="mt-1 text-sm text-black/70">Análisis profundo de tu escritura. Informe personalizado y detallado.</p>
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="mt-4 inline-flex w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-white hover:bg-primary-dark">Solicitar info</a>
+        </article>
+        <article class="bg-white rounded-2xl p-6 shadow-soft border border-black/5">
+          <img src="assets/svc-bach.png" alt="Flores de Bach" class="h-28 w-full object-contain mx-auto" />
+          <h3 class="mt-4 font-semibold">Flores de Bach</h3>
+          <p class="mt-1 text-sm text-black/70">Si querés trabajar en profundidad los bloqueos emocionales detectados con grafología, podemos sumar Flores de Bach.</p>
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="mt-4 inline-flex w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-white hover:bg-primary-dark">Solicitar info</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO EN 3 PASOS -->
+  <section class="py-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-2xl p-8 shadow-soft border border-black/5">
+        <h2 class="font-title text-xl md:text-3xl mb-6">¿Cómo trabajamos?</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <div class="h-10 w-10 rounded-full bg-primary/15 text-primary flex items-center justify-center font-semibold">1</div>
+            <h3 class="mt-3 font-semibold">Contacto</h3>
+            <p class="text-sm text-black/70">Hablamos por WhatsApp y elegimos el servicio ideal para vos.</p>
+          </div>
+          <div>
+            <div class="h-10 w-10 rounded-full bg-primary/15 text-primary flex items-center justify-center font-semibold">2</div>
+            <h3 class="mt-3 font-semibold">Evaluación</h3>
+            <p class="text-sm text-black/70">Me compartís tu escritura o firma y hago el análisis.</p>
+          </div>
+          <div>
+            <div class="h-10 w-10 rounded-full bg-primary/15 text-primary flex items-center justify-center font-semibold">3</div>
+            <h3 class="mt-3 font-semibold">Entrega</h3>
+            <p class="text-sm text-black/70">Recibís tu informe/ejercicios y, si querés, continuamos el acompañamiento.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Preguntas Frecuentes Section -->
-    <section class="py-16">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-[var(--color-primary)] mb-10">Preguntas frecuentes</h2>
-            <div class="space-y-4">
-                <details class="group bg-white rounded-xl shadow-md p-4 border border-gray-200" open>
-                    <summary class="cursor-pointer font-semibold text-[var(--color-primary)] flex items-center justify-between">
-                        ¿Qué es la grafología?
-                        <span class="ml-2 transition-transform group-open:rotate-180">
-                            ▼
-                        </span>
-                    </summary>
-                    <p class="mt-2 text-sm text-gray-700 leading-relaxed">
-                        La grafología es el estudio de la personalidad a través de la escritura. Analiza rasgos y gestos para entender patrones emocionales y cognitivos, brindándote una mirada profunda sobre tus fortalezas y áreas de mejora.
-                    </p>
-                </details>
-                <details class="group bg-white rounded-xl shadow-md p-4 border border-gray-200">
-                    <summary class="cursor-pointer font-semibold text-[var(--color-primary)] flex items-center justify-between">
-                        ¿Cómo funciona una sesión?
-                        <span class="ml-2 transition-transform group-open:rotate-180">
-                            ▼
-                        </span>
-                    </summary>
-                    <p class="mt-2 text-sm text-gray-700 leading-relaxed">
-                        Comenzamos con una breve entrevista y una muestra de tu escritura. A partir de allí, realizo el análisis grafopsicológico y comparto contigo un informe con claves y ejercicios de grafoterapia para acompañar tu proceso.
-                    </p>
-                </details>
-                <details class="group bg-white rounded-xl shadow-md p-4 border border-gray-200">
-                    <summary class="cursor-pointer font-semibold text-[var(--color-primary)] flex items-center justify-between">
-                        ¿Qué beneficios tienen las Flores de Bach?
-                        <span class="ml-2 transition-transform group-open:rotate-180">
-                            ▼
-                        </span>
-                    </summary>
-                    <p class="mt-2 text-sm text-gray-700 leading-relaxed">
-                        Las esencias florales de Bach ayudan a armonizar emociones y desbloquear patrones. Complementan el trabajo grafológico, contribuyendo a alcanzar un bienestar integral y equilibrio emocional.
-                    </p>
-                </details>
-            </div>
+  <!-- TESTIMONIOS -->
+  <section id="testimonios" class="py-14 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="font-title text-2xl md:text-4xl mb-6">Lo que dicen de Trazos de luz</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <figure class="bg-white rounded-2xl p-6 shadow-soft border border-black/5">
+          <blockquote class="text-black/80">“Me sorprendió lo preciso del análisis. Sentí claridad y alivio.”</blockquote>
+          <figcaption class="mt-3 text-sm text-black/60">— Mariana G.</figcaption>
+        </figure>
+        <figure class="bg-white rounded-2xl p-6 shadow-soft border border-black/5">
+          <blockquote class="text-black/80">“El detox de estrés me dio ejercicios simples que me cambiaron la semana.”</blockquote>
+          <figcaption class="mt-3 text-sm text-black/60">— Lucas P.</figcaption>
+        </figure>
+        <figure class="bg-white rounded-2xl p-6 shadow-soft border border-black/5">
+          <blockquote class="text-black/80">“El informe completo me ayudó a entender patrones y tomar decisiones.”</blockquote>
+          <figcaption class="mt-3 text-sm text-black/60">— Sofía R.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-14 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="font-title text-2xl md:text-4xl mb-6">Preguntas frecuentes</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <details class="bg-white rounded-2xl p-5 shadow-soft border border-black/5" open>
+          <summary class="font-semibold cursor-pointer">¿Qué es la grafología?</summary>
+          <p class="mt-2 text-black/70 text-sm">Es el estudio de la escritura como proyección de rasgos de personalidad. No es adivinación: observamos elementos técnicos (presión, forma, ritmo, etc.) que correlacionan con aspectos emocionales y cognitivos.</p>
+        </details>
+        <details class="bg-white rounded-2xl p-5 shadow-soft border border-black/5">
+          <summary class="font-semibold cursor-pointer">¿Cómo es el proceso?</summary>
+          <p class="mt-2 text-black/70 text-sm">Coordinamos por WhatsApp, te indico cómo escribir una muestra sencilla (hoja en blanco, birome), y a partir de eso preparo el informe o ejercicios según el servicio.</p>
+        </details>
+        <details class="bg-white rounded-2xl p-5 shadow-soft border border-black/5">
+          <summary class="font-semibold cursor-pointer">¿Modalidad y tiempos de entrega?</summary>
+          <p class="mt-2 text-black/70 text-sm">Trabajo online. Los tiempos dependen del servicio: desde 48 hs para análisis simples a una semana para informes completos.</p>
+        </details>
+        <details class="bg-white rounded-2xl p-5 shadow-soft border border-black/5">
+          <summary class="font-semibold cursor-pointer">¿Se puede combinar con Flores de Bach?</summary>
+          <p class="mt-2 text-black/70 text-sm">Sí. Si el análisis detecta bloqueos emocionales, podemos acompañar con una fórmula personalizada de Flores de Bach.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO / CTA FINAL -->
+  <section id="contacto" class="py-14 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-primary rounded-3xl p-8 md:p-12 text-white shadow-soft">
+        <h2 class="font-title text-2xl md:text-4xl">¿Charlamos por WhatsApp?</h2>
+        <p class="mt-2 text-white/90">Contame qué estás necesitando y te recomiendo el servicio indicado.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-primary font-semibold hover:bg-white/90">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.91 11.91 0 0 0 12.06 0C5.46.03.06 5.43.09 12.03c.01 2.12.56 4.19 1.6 6.02L0 24l6.12-1.62a12.02 12.02 0 0 0 5.88 1.51h.05c6.6-.03 12-5.43 11.97-12.03a11.9 11.9 0 0 0-3.5-8.38ZM12 22.05h-.05a10.04 10.04 0 0 1-5.12-1.42l-.37-.22-3.63.96.97-3.54-.24-.36A10.01 10.01 0 1 1 12 22.05Zm5.53-7.53c-.3-.15-1.77-.87-2.05-.96-.27-.1-.47-.15-.67.15-.2.3-.77.95-.95 1.15-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.48-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.62.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+            Escribir por WhatsApp
+          </a>
+          <a href="https://www.instagram.com/trazosdeluz.grafo" class="inline-flex items-center px-6 py-3 rounded-full bg-white/10 hover:bg-white/20">Instagram</a>
+          <a href="https://www.tiktok.com/@trazos_de_luz" class="inline-flex items-center px-6 py-3 rounded-full bg-white/10 hover:bg-white/20">TikTok</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="bg-[var(--color-secondary)] py-8">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-4">
-                <img src="assets/logo.png" alt="Logo" class="w-12 h-12">
-                <div>
-                    <p class="font-bold text-[var(--color-primary)]">Trazos de luz</p>
-                    <p class="text-sm text-gray-700">Grafología y terapias integrales</p>
-                </div>
-            </div>
-            <nav class="flex gap-6">
-                <a href="#servicios" class="text-[var(--color-primary)] hover:underline">Servicios</a>
-                <a href="#" class="text-[var(--color-primary)] hover:underline">Testimonios</a>
-                <a href="#" class="text-[var(--color-primary)] hover:underline">FAQ</a>
-            </nav>
-            <div class="flex gap-4 items-center">
-                <a href="https://www.instagram.com/trazosdeluz.grafo" aria-label="Instagram" class="text-[var(--color-primary)] hover:text-[var(--color-accent)]">
-                    <!-- Camera icon representing Instagram -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-6 h-6 fill-current">
-                        <path d="M224 202.66A53.34 53.34 0 1 0 277.33 256 53.38 53.38 0 0 0 224 202.66zm124.71-41a54 54 0 0 0-30.61-30.6C296.7 122.67 248.07 120 224 120s-72.7 2.67-94.1 10.94a54 54 0 0 0-30.61 30.6C90.66 179.3 88 227.93 88 256s2.67 76.7 10.95 98.11a54 54 0 0 0 30.61 30.6c21.4 8.27 70 10.94 94.11 10.94s72.7-2.67 94.11-10.94a54 54 0 0 0 30.61-30.6C357.34 332.7 360 284.07 360 256s-2.67-76.7-10.95-98.11zM224 338a82 82 0 1 1 82-82 82 82 0 0 1-82 82zm85.33-148a19.2 19.2 0 1 1 19.2-19.2 19.2 19.2 0 0 1-19.2 19.2z"/>
-                        <path d="M224 80c-60.6 0-136.7 3.3-180.8 18.7C14.4 125 0 151.5 0 256s14.4 131 43.2 157.3C87.3 432.7 163.4 436 224 436s136.7-3.3 180.8-18.7C433.6 387 448 360.5 448 256s-14.4-131-43.2-157.3C360.7 83.3 284.6 80 224 80zm0 352c-77 0-139-3.1-186.4-17C8.5 379.5 0 347.7 0 256s8.5-123.5 37.6-159C85 75.1 147 72 224 72s139 3.1 186.4 17C439.5 132.5 448 164.3 448 256s-8.5 123.5-37.6 159C363 428.9 301 432 224 432z"/>
-                    </svg>
-                </a>
-                <a href="https://www.tiktok.com/@trazos_de_luz" aria-label="TikTok" class="text-[var(--color-primary)] hover:text-[var(--color-accent)]">
-                    <!-- Music note icon representing TikTok -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-6 h-6 fill-current">
-                        <path d="M320 91.2c-37.7 0-68.8-28.7-74.5-65.2-.8-5.1-5.4-8.6-10.4-7.9l-74.5 11c-4.8.7-8.3 5-7.9 9.9v308.5c-9.8-5.6-21.2-8.7-33.5-8.7-37.6 0-68.1 30.5-68.1 68.1S81.6 480 119.2 480s68.1-30.5 68.1-68.1V214.6l64-9.4c8.8 31.6 37.6 55 71.1 55 39.9 0 72.4-32.5 72.4-72.4s-32.5-72.4-72.4-72.4z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-        <div class="mt-4 text-center text-sm text-gray-700">© <span id="year"></span> Trazos de luz. Todos los derechos reservados.</div>
-    </footer>
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-black/5">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" class="h-8 w-8 rounded-full" alt="Logo"/>
+        <p class="text-sm">© Trazos de luz 2025 · Todos los derechos reservados</p>
+      </div>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="#faq" class="hover:text-primary">Privacidad</a>
+        <a href="#faq" class="hover:text-primary">Términos</a>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Cloudflare Web Analytics (replace with actual token) -->
-    <!--
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_CLOUDFLARE_TOKEN_HERE"}'></script>
-    -->
-    <script>
-        // Actualiza el año en el footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://api.whatsapp.com/send/?phone=543548600802&text&type=phone_number&app_absent=0" class="fixed bottom-4 right-4 h-14 w-14 rounded-full bg-green-500 text-white shadow-lg flex items-center justify-center hover:bg-green-600" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-7 w-7 fill-current"><path d="M20.52 3.48A11.91 11.91 0 0 0 12.06 0C5.46.03.06 5.43.09 12.03c.01 2.12.56 4.19 1.6 6.02L0 24l6.12-1.62a12.02 12.02 0 0 0 5.88 1.51h.05c6.6-.03 12-5.43 11.97-12.03a11.9 11.9 0 0 0-3.5-8.38ZM12 22.05h-.05a10.04 10.04 0 0 1-5.12-1.42l-.37-.22-3.63.96.97-3.54-.24-.36A10.01 10.01 0 1 1 12 22.05Zm5.53-7.53c-.3-.15-1.77-.87-2.05-.96-.27-.1-.47-.15-.67.15-.2.3-.77.95-.95 1.15-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.48-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.62.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+  </a>
 </body>
 </html>
